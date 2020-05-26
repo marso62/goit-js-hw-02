@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-console.log('Задание 2-7!');
+console.log('Задание 2-7!')
 
 // Есть массив logins с логинами пользователей. Напиши скрипт добавления логина в массив logins.
 // Добавляемый логин должен:
@@ -39,48 +39,43 @@ console.log('Задание 2-7!');
 // isLoginValid только проверяет валидный ли логин и возвращает true или false.
 // addLogin добавляет или не добавляет логин в массив. При этом для проверок условия добавления использует
 // результаты вызовов других функций - isLoginUnique и isLoginValid.
-const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
+const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123']
 
-const isLoginValid = login => {
-  return login.length <= 4 && login.length >= 16; // почему такая запись не работает? и убираются скобки
-  //   if (login.length <= 4 && login.length >= 16) {        // как я понимаю идентичная запись
-  //     return true;
-  //   }
-  //   return false;
-};
+const isLoginValid = (login) => {
+    return login.length >= 4 && login.length <= 16 // почему такая запись не работает? и убираются скобки
+}
 
-// const isLoginUnique = (allLogins, login) => {
-//     return allLogins.include(login);                         // почему в данном случае не работает поиск?
-//   };
+// const isLoginUnique = (allLogins, login) => {  // что-то не хвотила (пересмотреть)
 
-const isLoginUnique = (allLogins, login) => {
-  for (const loginElement of allLogins) {
-    //что не так с этой функцией?
-    return loginElement !== login;
-  }
-};
+//   for (const loginElement of allLogins) {
+// if (login === loginElement) retern false;
+//   }
+// retern true;
+// };
+
+const isLoginUnique = (allLogins, login) => !allLogins.includes(login)
 
 const addLogin = function (allLogins, login) {
-  if (isLoginValid(login)) {
-    if (isLoginUnique(allLogins, login)) {
-      allLogins.push(login); //отказывается пушить
-      return 'Логин успешно добавлен!';
+    if (isLoginValid(login)) {
+        if (isLoginUnique(allLogins, login)) {
+            allLogins.push(login)
+            return 'Логин успешно добавлен!'
+        } else {
+            return 'Такой логин уже используется!'
+        }
     } else {
-      return 'Такой логин уже используется!';
+        return 'Ошибка! Логин должен быть от 4 до 16 символов'
     }
-  } else {
-    return 'Ошибка! Логин должен быть от 4 до 16 символов';
-  }
-};
+}
 
-console.log(logins);
+console.log(logins)
 
 /*
  * Вызовы функции для проверки работоспособности твоей реализации.
  */
-console.log(addLogin(logins, 'Ajax')); // 'Логин успешно добавлен!'
-console.log(addLogin(logins, 'robotGoogles')); // 'Такой логин уже используется!'
-console.log(addLogin(logins, 'Zod')); // 'Ошибка! Логин должен быть от 4 до 16 символов'
-console.log(addLogin(logins, 'jqueryisextremelyfast')); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+console.log(addLogin(logins, 'Ajax')) // 'Логин успешно добавлен!'
+console.log(addLogin(logins, 'robotGoogles')) // 'Такой логин уже используется!'
+console.log(addLogin(logins, 'Zod')) // 'Ошибка! Логин должен быть от 4 до 16 символов'
+console.log(addLogin(logins, 'jqueryisextremelyfast')) // 'Ошибка! Логин должен быть от 4 до 16 символов'
 
 //не пойму что не так, по логике должно работать а в действительности как то не очень

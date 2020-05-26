@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-console.log('Задание 2-5!');
+console.log('Задание 2-5!')
 
 // Напиши функцию checkForSpam(message), принимающую 1 параметр message - строку.
 // Функция проверяет ее на содержание слов spam и sale.
@@ -8,17 +8,17 @@ console.log('Задание 2-5!');
 //  Слова в строке могут быть в произвольном регистре.
 
 const checkForSpam = function (message) {
-  const text = message.toLowerCase();
-  return text.includes('spam') || text.includes('sale');
-};
+    const text = message.toLowerCase()
+    return text.includes('spam') || text.includes('sale')
+}
 
 /*
  * Вызовы функции для проверки работоспособности твоей реализации.
  */
-console.log(checkForSpam('Latest technology news')); // false
+console.log(checkForSpam('Latest technology news')) // false
 
-console.log(checkForSpam('JavaScript weekly newsletter')); // false
+console.log(checkForSpam('JavaScript weekly newsletter')) // false
 
-console.log(checkForSpam('Get best sale offers now!')); // true
+console.log(checkForSpam('Get best sale offers now!')) // true
 
-console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
+console.log(checkForSpam('[SPAM] How to earn fast money?')) // true

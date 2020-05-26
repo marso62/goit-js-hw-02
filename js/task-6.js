@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-console.log('Задание 2-6!');
+console.log('Задание 2-6!')
 
 // Напиши скрипт со следующим функционалом:
 
@@ -16,24 +16,56 @@ console.log('Задание 2-6!');
 // при этом результат prompt записывать в массив чисел не нужно, после чего снова пользователю предлагается ввести
 //  число в prompt.
 
-let input;
-const numbers = [];
-let total = 0;
+let input
+const numbers = []
+let total = 0
 do {
-  input = prompt('Введите число, пожалуйста', '');
-  const inputNumb = +input;
+    input = prompt('Введите число, пожалуйста', '')
 
-  if (Number.isNaN(inputNumb)) {
-    alert('Было введено не число, попробуйте еще раз!');
-    continue;
-  }
+    // if (imput === null) break  //ломает работу цикла
 
-  numbers.push(inputNumb);
-} while (input !== null);
-numbers.pop();
+    const inputNumb = +input
+
+    if (Number.isNaN(inputNumb)) {
+        alert('Было введено не число, попробуйте еще раз!')
+        continue
+    }
+
+    numbers.push(inputNumb)
+} while (input !== null)
+
+numbers.pop()
+
 for (let i = 0; i < numbers.length; i += 1) {
-  total += numbers[i];
+    total += numbers[i]
 }
-console.log(`Общая сумма чисел равна ${total}`);
+console.log(`Общая сумма чисел равна ${total}`)
 
-console.log(numbers); //созданный массив
+console.log(numbers) //созданный массив
+
+// 2 вариант
+
+// const YOU_NUMBER = 'You number';
+// const NO_NUMBER = 'Было введено не число, попробуйте еще раз';
+// let userInput;
+// let total = 0;
+// const numbers = [];
+
+// while (userInput !== null) {
+// userInput = prompt(YOU_NUMBER, 0);
+// if (userInput === null) break;
+// const userNumber = +userInput;
+// if (Number.isNaN(userNumber)) {
+// alert(NO_NUMBER);
+// } else {
+// numbers.push(userNumber);
+// }
+// }
+
+// if (numbers.length > 0) {
+// for (let i = 0; i < numbers.length; i += 1) {
+// total += numbers[i];
+// }
+// }
+// const message = `Общая сумма чисел равна ${total}`;
+// alert(message);
